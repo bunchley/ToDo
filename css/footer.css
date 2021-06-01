@@ -1,17 +1,1 @@
-.footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  width: 100%;
-  background-color: #333;
-  color: #999;
-  align-items: center;
-  justify-content: center;
-}
 
-.fa-skull {
-  color: #999;
-  margin-left: 10;
-  margin-right: 10;
-}

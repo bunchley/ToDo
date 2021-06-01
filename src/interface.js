@@ -2,15 +2,31 @@
 let content = document.getElementById("content");
 
 const text = {
-  title: "List for the Dead",
+  title: "Dead Lists Inc.",
   footer: "Death, punk and tasks. Find more:",
-  projectTitle: "Projects of the Dead",
+  projectTitle: "Dead Lists",
+  defaultProject: "Default Dead",
+  addProject: "Add Dead List",
+};
+const icon = {
+  gen: "fas",
+  project: "fa-skull",
 };
 
 const createDiv = (type, elementClass, appendTo) => {
   const element = document.createElement(`${type}`);
   element.classList.add(`${elementClass}`);
   appendTo.appendChild(element);
+  return element;
+};
+const addButtonIcon = (class1, class2, appendTo, text) => {
+  const element = document.createElement("i");
+  element.classList.add(`${class1}`);
+  element.classList.add(`${class2}`);
+  appendTo.appendChild(element);
+  const span = document.createElement("span");
+  span.innerHTML = text;
+  appendTo.appendChild(span);
   return element;
 };
 
@@ -39,7 +55,38 @@ const createSideBar = () => {
   const nav = createDiv("nav", "nav", main);
   const projectTitle = createDiv("h1", "project-title", nav);
   projectTitle.innerHTML = text.projectTitle;
-  const projectList = createDiv("div", "project-list");
+  const projectList = createDiv("div", "project-list", projectTitle);
+  const defaultProject = createDiv("button", "button-project", projectList);
+  addButtonIcon(
+    `${icon.gen}`,
+    `${icon.project}`,
+    defaultProject,
+    text.defaultProject
+  );
+
+  const addProject = createDiv("button", "add-project", projectList);
+  addButtonIcon(`${icon.gen}`, `${icon.project}`, addProject, text.addProject);
 };
 
-export { createHeader, createFooter, createSideBar };
+const createPreview = () => {
+  const main = document.querySelector(".main");
+  const preview = createDiv("div", "preview", main);
+  const previewTitle = createDiv("h1", "preview-title", preview);
+  previewTitle.innerHTML = "Hello preview title you have arrived!!";
+};
+
+const displayProject = (target) => {
+  console.log("preview created");
+  const title = document.querySelector(".preview-title");
+
+  title.innerHTML = target.textContent;
+};
+
+const createPage = () => {
+  createHeader();
+  createSideBar();
+  createPreview();
+  createFooter();
+};
+
+export { createPage, displayProject };

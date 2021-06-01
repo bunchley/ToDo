@@ -1,0 +1,110 @@
+:root {
+  --primary-black: #333;
+  --primary-light: #999;
+  --secondary-black: #282828;
+}
+
+* {
+  margin: 0;
+}
+button > * {
+  pointer-events: none;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+html {
+  /* font-size: 69.5%; */
+  line-height: 1.6;
+
+  /*footer support*/
+  position: relative; /*makes html an element which footer sticks to*/
+}
+body {
+  font-size: 1.6rem;
+  font-family: "Yusei Magic", sans-serif;
+  background-color: var(--primary-light);
+  color: var(--secondary-black);
+}
+
+.header {
+  float: left;
+  width: 100%;
+  height: 5rem;
+  background-color: var(--primary-black);
+  color: var(--primary-light);
+  align-items: center;
+  font-size: 1.6rem;
+}
+.fa-book-dead {
+  font-size: 4rem;
+  float: left;
+  width: 100%;
+  margin-right: 10;
+  margin-left: 10;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  background-color: var(--primary-black);
+  color: var(--primary-light);
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+
+  flex-shrink: 0;
+}
+
+.fa-skull {
+  color: var(--primary-light);
+  margin-left: 10;
+  margin-right: 10;
+  display: flex;
+}
+
+.main {
+  margin-left: 300px;
+  padding: 10px;
+}
+
+.nav {
+  width: 300px;
+  display: block;
+  position: fixed;
+  flex: 1;
+  left: 0;
+  background-color: var(--secondary-black);
+  height: 100%;
+  padding: 10px;
+  margin-right: 10px;
+  top: 5rem;
+}
+.preview {
+  display: block;
+  clear: both;
+  padding: 2rem 4rem;
+  margin: 0;
+}
+.nav h1 {
+  color: #999;
+}
+
+.nav button {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 86%;
+  text-align: end;
+  height: 43;
+  margin-top: 1rem;
+  color: #999;
+  background-color: #333;
+}
