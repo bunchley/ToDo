@@ -108,3 +108,30 @@ body {
   color: #999;
   background-color: #333;
 }
+
+.add-project.dead {
+  display: none;
+}
+
+.add-new-project {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 86%;
+  text-align: end;
+  height: 43;
+  margin-top: 1rem;
+  color: #999;
+  background-color: #333;
+}
+input {
+  width: 76%;
+  border: none;
+  height: 43;
+  border-width: 2px;
+  border-style: outset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+  margin-top: 0;
+  color: var(--primary-light);
+}

@@ -30,6 +30,13 @@ const addButtonIcon = (class1, class2, appendTo, text) => {
   return element;
 };
 
+const displayAddNewProject = () => {
+  const nav = document.querySelector(".nav");
+  const newName = createDiv("div", "add-new-project", nav);
+  const input = createDiv("input", "add-new-project-input", newName);
+  const divButton = addButtonIcon(" ", "fa-sign-in-alt", newName, "");
+};
+
 const createHeader = () => {
   const header = createDiv("div", "header", content);
   const logo = createDiv("div", "logo", header);
@@ -66,6 +73,9 @@ const createSideBar = () => {
 
   const addProject = createDiv("button", "add-project", projectList);
   addButtonIcon(`${icon.gen}`, `${icon.project}`, addProject, text.addProject);
+
+  //create addbutton feature now
+  displayAddNewProject();
 };
 
 const createPreview = () => {
@@ -82,6 +92,18 @@ const displayProject = (target) => {
   title.innerHTML = target.textContent;
 };
 
+const toggleAddProjectButton = () => {
+  const addButton = document.querySelector(".add-project");
+  console.log("addButton", addButton);
+  if (addButton.classList.contains("dead")) {
+    console.log("contains dead");
+    addButton.classList.toggle("dead");
+  } else if (!addButton.classList.contains("dead")) {
+    console.log("adding dead");
+    addButton.classList.add("dead");
+  }
+};
+
 const createPage = () => {
   createHeader();
   createSideBar();
@@ -89,4 +111,4 @@ const createPage = () => {
   createFooter();
 };
 
-export { createPage, displayProject };
+export { createPage, displayProject, toggleAddProjectButton };

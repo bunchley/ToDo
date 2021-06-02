@@ -1,5 +1,5 @@
 import { createPage, displayProject } from "./interface.js";
-import createTodo from "./todoMgmt.js";
+import { createTodo, createProject } from "./todoMgmt.js";
 
 createPage();
 
@@ -20,4 +20,7 @@ function handleClick(e) {
     displayProject(target);
   }
   //event listener for add project button
+  if (target.className.match("add-project")) {
+    createProject();
+  }
 }
