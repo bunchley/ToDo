@@ -3,7 +3,11 @@ import {
   displayProject,
   toggleAddProjectButton,
 } from "./interface.js";
-import { createTodo, addProjectSequence } from "./todoMgmt.js";
+import {
+  createTodo,
+  addProjectSequence,
+  addTaskToProject,
+} from "./todoMgmt.js";
 
 createPage();
 
@@ -35,6 +39,8 @@ function handleClick(e) {
   }
   if (target.className.match("add-task")) {
     console.log("add task button clicked");
-    // addTaskToProject(project);
+    let project = document.querySelector(".preview-title").textContent;
+    console.log(project);
+    addTaskToProject(project);
   }
 }

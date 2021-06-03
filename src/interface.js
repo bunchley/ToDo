@@ -38,13 +38,24 @@ const addButtonIcon = (class1, class2, appendTo, text) => {
 
   return element;
 };
+const createInput = (tacOnTo, className, type, placeholder) => {
+  const input = createDiv("input", className, tacOnTo);
+  input.setAttribute("type", type);
+  input.setAttribute("placeholder", placeholder);
+};
 
 const createAddNewProject = () => {
   const nav = document.querySelector(".nav");
   const newName = createDiv("div", "add-new-project", nav);
-  const input = createDiv("input", "add-new-project-input", newName);
-  input.setAttribute("type", "text");
-  input.setAttribute("placeholder", text.addNameProject);
+  const input1 = createInput(
+    newName,
+    "add-new-project-input",
+    "text",
+    text.addNameProject
+  );
+  // const input = createDiv("input", "add-new-project-input", newName);
+  // input.setAttribute("type", "text");
+  // input.setAttribute("placeholder", text.addNameProject);
   // input.setAttribute("value", "text");
   const divButton = createDiv("button", "addNewProjectButton", newName);
   divButton.setAttribute("id", "new-project-submit");
@@ -97,8 +108,14 @@ const createPreview = () => {
   previewTitle.innerHTML = "Hello preview title you have arrived!!";
   const task = createDiv("div", "task-list", preview);
   const newTask = createDiv("button", "add-task", preview);
-  console.log("adding button");
   addButtonIcon(`${icon.task1}`, `${icon.task2}`, newTask, text.newTask);
+};
+
+const createNewTaskForm = () => {
+  const preview = document.querySelector("preview");
+  const container = createDiv("div", "new-task-container", preview);
+  const form = createDiv("form", "new-task-form", container);
+  const taskTitle = createDiv("input", "task-title", form);
 };
 
 const displayProject = (target) => {
@@ -129,6 +146,13 @@ const addProjectToDOM = (name) => {
   addButtonIcon(`${icon.gen}`, `${icon.project}`, newProject, name);
 };
 
+const newTaskDOM = () => {
+  console.log("here");
+  const newTaskButton = document.querySelector(".add-task");
+  console.log(newTaskButton);
+  newTaskButton.classList.add("dead");
+};
+
 const createPage = () => {
   createHeader();
   createSideBar();
@@ -137,4 +161,10 @@ const createPage = () => {
   createFooter();
 };
 
-export { createPage, toggleAddProjectButton, displayProject, addProjectToDOM };
+export {
+  createPage,
+  toggleAddProjectButton,
+  displayProject,
+  addProjectToDOM,
+  newTaskDOM,
+};

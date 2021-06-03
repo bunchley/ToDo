@@ -175,3 +175,6 @@ input[type="text"] {
   color: #999;
   background-color: #333;
 }
+.add-task.dead {
+  display: none;
+}

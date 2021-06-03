@@ -1,4 +1,8 @@
-import { toggleAddProjectButton, addProjectToDOM } from "./interface.js";
+import {
+  toggleAddProjectButton,
+  addProjectToDOM,
+  newTaskDOM,
+} from "./interface.js";
 let project = 0;
 
 function Project(name) {
@@ -22,5 +26,8 @@ const addProjectSequence = (projectName) => {
   createProject(projectName);
   addProjectToDOM(projectName);
 };
+const addTaskToProject = (project) => {
+  newTaskDOM();
+};
 
-export { createTodo, createProject, addProjectSequence };
+export { createTodo, createProject, addProjectSequence, addTaskToProject };
