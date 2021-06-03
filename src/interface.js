@@ -12,12 +12,16 @@ const text = {
   addProject: "Add Dead List",
   addNameProject: "Add Dead List Name..",
   newTask: "New Task",
+  taskTitle: "Title",
+  taskNotes: "Notes go here",
+  taskButton: "Add Task",
 };
 const icon = {
   gen: "fas",
   project: "fa-skull",
   task1: "fas",
   task2: "fa-bone",
+  taskButton: "fa-spider",
 };
 
 const createDiv = (type, elementClass, appendTo) => {
@@ -47,16 +51,12 @@ const createInput = (tacOnTo, className, type, placeholder) => {
 const createAddNewProject = () => {
   const nav = document.querySelector(".nav");
   const newName = createDiv("div", "add-new-project", nav);
-  const input1 = createInput(
+  const input = createInput(
     newName,
     "add-new-project-input",
     "text",
     text.addNameProject
   );
-  // const input = createDiv("input", "add-new-project-input", newName);
-  // input.setAttribute("type", "text");
-  // input.setAttribute("placeholder", text.addNameProject);
-  // input.setAttribute("value", "text");
   const divButton = createDiv("button", "addNewProjectButton", newName);
   divButton.setAttribute("id", "new-project-submit");
   addButtonIcon("fas", "fa-sign-in-alt", divButton, "");
@@ -112,10 +112,14 @@ const createPreview = () => {
 };
 
 const createNewTaskForm = () => {
-  const preview = document.querySelector("preview");
+  console.log("creating new task");
+  const preview = document.querySelector(".preview");
   const container = createDiv("div", "new-task-container", preview);
   const form = createDiv("form", "new-task-form", container);
-  const taskTitle = createDiv("input", "task-title", form);
+  const taskTitle = createInput(form, "task-title", "text", text.taskTitle);
+  const taskNotes = createInput(form, "task-notes", "text", text.taskNotes);
+  const addTaskButton = createDiv("button", "add-new-task", form);
+  addButtonIcon(icon.gen, icon.taskButton, addTaskButton, text.taskButton);
 };
 
 const displayProject = (target) => {
@@ -146,11 +150,12 @@ const addProjectToDOM = (name) => {
   addButtonIcon(`${icon.gen}`, `${icon.project}`, newProject, name);
 };
 
-const newTaskDOM = () => {
+const newTaskDOM = (project) => {
   console.log("here");
   const newTaskButton = document.querySelector(".add-task");
   console.log(newTaskButton);
-  newTaskButton.classList.add("dead");
+  // newTaskButton.classList.add("dead");
+  createNewTaskForm();
 };
 
 const createPage = () => {

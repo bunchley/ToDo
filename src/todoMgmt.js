@@ -27,7 +27,7 @@ const addProjectSequence = (projectName) => {
   addProjectToDOM(projectName);
 };
 const addTaskToProject = (project) => {
-  newTaskDOM();
+  newTaskDOM(project);
 };
 
 export { createTodo, createProject, addProjectSequence, addTaskToProject };

@@ -164,7 +164,11 @@ input[type="text"] {
   padding-right: 9px;
   display: flex;
 }
-.add-task {
+
+.add-task.dead {
+  display: none;
+}
+.preview > button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -175,6 +179,19 @@ input[type="text"] {
   color: #999;
   background-color: #333;
 }
-.add-task.dead {
-  display: none;
+
+button.add-new-task {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: end;
+  height: 43;
+
+  color: #999;
+  background-color: #333;
+}
+
+.new-task-container {
+  width: 86%;
 }
