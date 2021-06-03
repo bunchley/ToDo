@@ -1,12 +1,26 @@
-import { toggleAddProjectButton } from "./interface.js";
+import { toggleAddProjectButton, addProjectToDOM } from "./interface.js";
+let project = 0;
+
+function Project(name) {
+  this.name = name;
+}
 
 const createTodo = () => {
   console.log("add project button selected");
 };
 
-const createProject = () => {
+const createProject = (projectName) => {
   console.log("Add Dead List Selected");
-  // toggleAddProjectButton();
+  const newProject = new Project(projectName);
+  console.log({ newProject });
+
+  project++;
+  return;
 };
 
-export { createTodo, createProject };
+const addProjectSequence = (projectName) => {
+  createProject(projectName);
+  addProjectToDOM(projectName);
+};
+
+export { createTodo, createProject, addProjectSequence };

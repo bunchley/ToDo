@@ -1,4 +1,7 @@
 "use strict";
+
+import { createProject } from "./todoMgmt";
+
 let content = document.getElementById("content");
 
 const text = {
@@ -79,6 +82,7 @@ const createSideBar = () => {
     defaultProject,
     text.defaultProject
   );
+  createProject("default");
 
   const addProject = createDiv("button", "add-project", projectList);
   addButtonIcon(`${icon.gen}`, `${icon.project}`, addProject, text.addProject);
@@ -114,6 +118,13 @@ const toggleAddProjectButton = () => {
   }
 };
 
+const addProjectToDOM = (name) => {
+  console.log("adding new project to DOM", name);
+  const projectList = document.querySelector(".project-list");
+  const newProject = createDiv("button", "button-project", projectList);
+  addButtonIcon(`${icon.gen}`, `${icon.project}`, newProject, name);
+};
+
 const createPage = () => {
   createHeader();
   createSideBar();
@@ -122,4 +133,4 @@ const createPage = () => {
   createFooter();
 };
 
-export { createPage, toggleAddProjectButton, displayProject };
+export { createPage, toggleAddProjectButton, displayProject, addProjectToDOM };
