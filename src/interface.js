@@ -11,10 +11,13 @@ const text = {
   defaultProject: "Default Dead",
   addProject: "Add Dead List",
   addNameProject: "Add Dead List Name..",
+  newTask: "New Task",
 };
 const icon = {
   gen: "fas",
   project: "fa-skull",
+  task1: "fas",
+  task2: "fa-bone",
 };
 
 const createDiv = (type, elementClass, appendTo) => {
@@ -65,8 +68,7 @@ const createFooter = () => {
   footText.innerHTML = text.footer;
   const link = createDiv("a", "github-link", footer);
   link.setAttribute("href", "https://github.com/bunchley");
-  const icon = createDiv("i", "fas", link);
-  icon.classList.add("fa-skull");
+  addButtonIcon(`${icon.gen}`, `${icon.project}`, link, "");
 };
 
 const createSideBar = () => {
@@ -86,8 +88,6 @@ const createSideBar = () => {
 
   const addProject = createDiv("button", "add-project", projectList);
   addButtonIcon(`${icon.gen}`, `${icon.project}`, addProject, text.addProject);
-
-  //create addbutton feature now
 };
 
 const createPreview = () => {
@@ -95,6 +95,10 @@ const createPreview = () => {
   const preview = createDiv("div", "preview", main);
   const previewTitle = createDiv("h1", "preview-title", preview);
   previewTitle.innerHTML = "Hello preview title you have arrived!!";
+  const task = createDiv("div", "task-list", preview);
+  const newTask = createDiv("button", "add-task", preview);
+  console.log("adding button");
+  addButtonIcon(`${icon.task1}`, `${icon.task2}`, newTask, text.newTask);
 };
 
 const displayProject = (target) => {

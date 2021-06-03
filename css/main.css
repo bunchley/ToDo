@@ -164,3 +164,14 @@ input[type="text"] {
   padding-right: 9px;
   display: flex;
 }
+.add-task {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 86%;
+  text-align: end;
+  height: 43;
+
+  color: #999;
+  background-color: #333;
+}

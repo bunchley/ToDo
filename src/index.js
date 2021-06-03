@@ -28,11 +28,13 @@ function handleClick(e) {
     toggleAddProjectButton();
   }
   if (target.className.match("addNewProjectButton")) {
-    console.log("enter button clicked");
     let projectNameInput = document.querySelector(
       ".add-new-project-input"
     ).value;
-    console.log(projectNameInput);
     addProjectSequence(projectNameInput);
+  }
+  if (target.className.match("add-task")) {
+    console.log("add task button clicked");
+    // addTaskToProject(project);
   }
 }
