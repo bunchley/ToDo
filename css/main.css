@@ -135,3 +135,32 @@ input {
   margin-top: 0;
   color: var(--primary-light);
 }
+
+input[type="text"] {
+  background-color: var(--primary-light);
+  width: 100%;
+
+  color: var(--primary-black);
+}
+
+.fa-sign-in-alt {
+  margin-left: 20;
+  margin-right: 10;
+  display: flex;
+}
+
+.dead {
+  display: none;
+}
+.fa-sign-in-alt > * {
+  pointer-events: none;
+}
+
+#new-project-submit {
+  width: 20%;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  padding-right: 9px;
+  display: flex;
+}

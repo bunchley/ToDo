@@ -6,7 +6,7 @@ const createTodo = () => {
 
 const createProject = () => {
   console.log("Add Dead List Selected");
-  toggleAddProjectButton();
+  // toggleAddProjectButton();
 };
 
 export { createTodo, createProject };

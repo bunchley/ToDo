@@ -1,4 +1,8 @@
-import { createPage, displayProject } from "./interface.js";
+import {
+  createPage,
+  displayProject,
+  toggleAddProjectButton,
+} from "./interface.js";
 import { createTodo, createProject } from "./todoMgmt.js";
 
 createPage();
@@ -11,9 +15,9 @@ if (document.body.addEventListener) {
 }
 
 function handleClick(e) {
-  console.log("Clicked: ", e);
   e = e || window.event;
   let target = e.target || e.srcElement;
+  console.log("Clicked: ", target);
 
   //event listener for project button
   if (target.className.match("button-project")) {
@@ -21,6 +25,10 @@ function handleClick(e) {
   }
   //event listener for add project button
   if (target.className.match("add-project")) {
-    createProject();
+    toggleAddProjectButton();
+  }
+  if (target.className.match("addNewProjectButton")) {
+    console.log("enter button clicked");
+    // addProjectToList();
   }
 }
