@@ -15,6 +15,7 @@ const text = {
   taskTitle: "Title",
   taskNotes: "Notes go here",
   taskButton: "Add Task",
+  taskCancel: "Kill",
 };
 const icon = {
   gen: "fas",
@@ -120,6 +121,9 @@ const createNewTaskForm = () => {
   const taskNotes = createInput(form, "task-notes", "text", text.taskNotes);
   const addTaskButton = createDiv("button", "add-new-task", form);
   addButtonIcon(icon.gen, icon.taskButton, addTaskButton, text.taskButton);
+  const cancelTaskButton = createDiv("button", "cancel-new-task", form);
+
+  addButtonIcon(icon.gen, icon.taskButton, cancelTaskButton, text.taskCancel);
 };
 
 const displayProject = (target) => {
@@ -154,7 +158,7 @@ const newTaskDOM = (project) => {
   console.log("here");
   const newTaskButton = document.querySelector(".add-task");
   console.log(newTaskButton);
-  // newTaskButton.classList.add("dead");
+  newTaskButton.classList.add("dead");
   createNewTaskForm();
 };
 
