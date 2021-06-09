@@ -3,11 +3,26 @@ import {
   addProjectToDOM,
   newTaskDOM,
 } from "./interface.js";
-let project = 0;
 
-function Project(name) {
-  this.name = name;
+class Todo {
+  constructor() {
+    this.projects = [];
+    this.projects.push(new Project("Default"));
+  }
+  setProjects(projects) {
+    this.projects = projects;
+  }
+
+  getProjects() {
+    return this.projects;
+  }
+  addProject(project) {
+    this.projects.push(project);
+  }
 }
+
+import Project from "./modules/project.js";
+let projectCount = 0;
 
 const createTodo = () => {
   console.log("add project button selected");
@@ -18,7 +33,7 @@ const createProject = (projectName) => {
   const newProject = new Project(projectName);
   console.log({ newProject });
 
-  project++;
+  projectCount++;
   return;
 };
 
@@ -26,8 +41,8 @@ const addProjectSequence = (projectName) => {
   createProject(projectName);
   addProjectToDOM(projectName);
 };
-const addTaskToProject = (project) => {
-  newTaskDOM(project);
+const addTaskToProject = (projectName) => {
+  newTaskDOM(projectName);
 };
 
 export { createTodo, createProject, addProjectSequence, addTaskToProject };
